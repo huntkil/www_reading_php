@@ -32,8 +32,8 @@
 - **Frontend**: Next.js 14, React 18, TypeScript
 - **UI Framework**: ShadCN UI, Tailwind CSS
 - **Icons**: Lucide React
-- **Database**: Prisma (SQLite)
 - **Styling**: CSS Modules, Tailwind CSS
+- **배포**: 정적 사이트 (Static Export)
 
 ## 📦 설치 및 실행
 
@@ -56,11 +56,8 @@ npm run dev
 
 ### 환경 설정
 ```bash
-# .env 파일 생성
+# .env 파일 생성 (선택사항)
 cp .env.example .env
-
-# 데이터베이스 마이그레이션
-npx prisma migrate dev
 ```
 
 ## 🎯 훈련 모듈
@@ -125,10 +122,28 @@ npx prisma migrate dev
 - **이해도 점수**: 객관식 질문을 통한 이해도 평가
 - **진행률**: 단계별 완료율 추적
 
-### 개인화된 피드백
-- **맞춤형 조언**: 개인 성과에 따른 개선 제안
-- **학습 경로**: 난이도별 최적화된 훈련 계획
-- **동기부여**: 성과 향상에 따른 긍정적 피드백
+### 학습 피드백
+- **단계별 가이드**: 각 훈련 단계에 맞는 구체적인 안내
+- **과학적 설명**: 인지과학 기반의 훈련 원리 설명
+- **실습 중심**: 이론과 실습을 결합한 효과적인 학습
+
+## 🚀 배포
+
+### 정적 사이트 빌드
+```bash
+# 프로덕션 빌드
+npm run build
+
+# 정적 파일 생성 (out 폴더)
+# out 폴더의 모든 파일을 웹 서버에 업로드
+```
+
+### 지원하는 호스팅 서비스
+- **카페24**: 정적 파일 업로드
+- **GitHub Pages**: 무료 정적 호스팅
+- **Netlify**: 무료 정적 호스팅
+- **Vercel**: Next.js 최적화 호스팅
+- **기타 정적 호스팅 서비스**
 
 ## 🤝 기여하기
 
@@ -136,6 +151,9 @@ npx prisma migrate dev
 ```bash
 # 개발 의존성 설치
 npm install
+
+# 개발 서버 실행
+npm run dev
 
 # 린트 실행
 npm run lint
@@ -163,6 +181,19 @@ MIT License - 자세한 내용은 [LICENSE](LICENSE) 파일을 참조하세요.
 - 인지과학 연구자들의 읽기 처리 모델
 - ShadCN UI 컴포넌트 라이브러리
 - Next.js 개발팀의 혁신적인 프레임워크
+
+## 📝 프로젝트 상태
+
+✅ **현재 상태**: 정상 동작 중
+- 개발 서버: http://localhost:3000
+- 정적 빌드: 완료 (out 폴더)
+- 카페24 호스팅 준비 완료
+
+🔄 **최근 업데이트**:
+- 사용자 관리, 세션 저장, 개인화 기능 제거
+- 정적 사이트로 변환 완료
+- 데이터베이스 의존성 제거
+- 카페24 호스팅 호환성 확보
 
 ---
 

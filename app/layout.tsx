@@ -13,8 +13,8 @@ export const metadata: Metadata = {
   title: 'Subvocalization Coaching',
       description: '서브보컬라이제이션 코칭 프로그램',
   icons: {
-    icon: '/favicon.ico',
-    apple: '/apple-touch-icon.png',
+    icon: '/rd/favicon.ico',
+    apple: '/rd/apple-touch-icon.png',
   },
 }
 
@@ -58,9 +58,6 @@ export default function RootLayout({
                       <Link href="/training" className="block text-muted-foreground hover:text-foreground transition-colors">
                         훈련
                       </Link>
-                      <Link href="/community" className="block text-muted-foreground hover:text-foreground transition-colors">
-                        커뮤니티
-                      </Link>
                     </div>
                   </div>
 
@@ -68,15 +65,9 @@ export default function RootLayout({
                   <div className="space-y-4">
                     <h3 className="font-semibold">지원</h3>
                     <div className="space-y-2 text-sm">
-                      <Link href="/help" className="block text-muted-foreground hover:text-foreground transition-colors">
-                        도움말
-                      </Link>
-                      <Link href="/faq" className="block text-muted-foreground hover:text-foreground transition-colors">
-                        자주 묻는 질문
-                      </Link>
-                      <Link href="/contact" className="block text-muted-foreground hover:text-foreground transition-colors">
-                        문의하기
-                      </Link>
+                      <span className="block text-muted-foreground">
+                        현재 개발 중
+                      </span>
                     </div>
                   </div>
 

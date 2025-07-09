@@ -646,6 +646,40 @@ export function TrainingSession({
             </div>
           )}
           
+          {/* 이론 내용 표시 */}
+          <div className="bg-muted p-4 rounded-lg">
+            <div className="flex items-center justify-between mb-2">
+              <h3 className="font-semibold">이론 학습:</h3>
+              <div className="flex items-center gap-2">
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={decreaseTextSize}
+                  disabled={textSize === 'small'}
+                  className="h-8 w-8 p-0"
+                >
+                  <ZoomOut className="h-4 w-4" />
+                </Button>
+                <span className="text-xs text-muted-foreground min-w-[40px] text-center">
+                  {textSize === 'small' ? '작게' : textSize === 'medium' ? '보통' : textSize === 'large' ? '크게' : '아주 크게'}
+                </span>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={increaseTextSize}
+                  disabled={textSize === 'xlarge'}
+                  className="h-8 w-8 p-0"
+                >
+                  <ZoomIn className="h-4 w-4" />
+                </Button>
+              </div>
+            </div>
+            <div 
+              className={`${getTextSizeClass()} leading-relaxed prose prose-sm max-w-none`}
+              dangerouslySetInnerHTML={{ __html: currentStep.content }}
+            />
+          </div>
+          
           {/* 선택한 리딩 자료의 내용 표시 */}
           {selectedChapter && (
             <div className="bg-muted p-4 rounded-lg">
@@ -756,9 +790,34 @@ export function TrainingSession({
       {currentPhase === 'reading' && (
         <div className="space-y-6">
           <div className="bg-muted p-4 rounded-lg">
-            <h3 className="font-semibold mb-2">
-              {selectedChapter ? '선택된 리딩 자료:' : '읽을 텍스트:'}
-            </h3>
+            <div className="flex items-center justify-between mb-2">
+              <h3 className="font-semibold">
+                {selectedChapter ? '선택된 리딩 자료:' : '읽을 텍스트:'}
+              </h3>
+              <div className="flex items-center gap-2">
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={decreaseTextSize}
+                  disabled={textSize === 'small'}
+                  className="h-8 w-8 p-0"
+                >
+                  <ZoomOut className="h-4 w-4" />
+                </Button>
+                <span className="text-xs text-muted-foreground min-w-[40px] text-center">
+                  {textSize === 'small' ? '작게' : textSize === 'medium' ? '보통' : textSize === 'large' ? '크게' : '아주 크게'}
+                </span>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={increaseTextSize}
+                  disabled={textSize === 'xlarge'}
+                  className="h-8 w-8 p-0"
+                >
+                  <ZoomIn className="h-4 w-4" />
+                </Button>
+              </div>
+            </div>
             {selectedChapter && (
               <div className="mb-4 p-3 bg-primary/10 rounded-lg">
                 <h4 className="font-medium text-primary">{selectedChapter.title}</h4>
@@ -767,7 +826,7 @@ export function TrainingSession({
                 </p>
               </div>
             )}
-            <div className="text-sm leading-relaxed">
+            <div className={`${getTextSizeClass()} leading-relaxed`}>
               {selectedChapter ? selectedChapter.content : currentStep.readingText}
             </div>
           </div>
@@ -786,10 +845,35 @@ export function TrainingSession({
       {currentPhase === 'comprehension' && (
         <div className="space-y-6">
           <div className="bg-muted p-4 rounded-lg">
-            <h3 className="font-semibold mb-4">이해도 확인 질문:</h3>
+            <div className="flex items-center justify-between mb-4">
+              <h3 className="font-semibold">이해도 확인 질문:</h3>
+              <div className="flex items-center gap-2">
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={decreaseTextSize}
+                  disabled={textSize === 'small'}
+                  className="h-8 w-8 p-0"
+                >
+                  <ZoomOut className="h-4 w-4" />
+                </Button>
+                <span className="text-xs text-muted-foreground min-w-[40px] text-center">
+                  {textSize === 'small' ? '작게' : textSize === 'medium' ? '보통' : textSize === 'large' ? '크게' : '아주 크게'}
+                </span>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={increaseTextSize}
+                  disabled={textSize === 'xlarge'}
+                  className="h-8 w-8 p-0"
+                >
+                  <ZoomIn className="h-4 w-4" />
+                </Button>
+              </div>
+            </div>
             {readingQuestions?.map((question, index) => (
               <div key={index} className="mb-6">
-                <Label className="text-sm font-medium">
+                <Label className={`${getTextSizeClass()} font-medium`}>
                   {index + 1}. {question.question}
                 </Label>
                 <RadioGroup
@@ -800,7 +884,7 @@ export function TrainingSession({
                   {question.options.map((option, optionIndex) => (
                     <div key={optionIndex} className="flex items-center space-x-2">
                       <RadioGroupItem value={optionIndex.toString()} id={`q${index}-${optionIndex}`} />
-                      <Label htmlFor={`q${index}-${optionIndex}`} className="text-sm">
+                      <Label htmlFor={`q${index}-${optionIndex}`} className={getTextSizeClass()}>
                         {option}
                       </Label>
                     </div>

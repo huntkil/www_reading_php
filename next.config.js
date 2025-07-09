@@ -1,9 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  env: {
-    MCP_SERVER_URL: process.env.MCP_SERVER_URL,
-    MCP_API_KEY: process.env.MCP_API_KEY,
-    OPENAI_API_KEY: process.env.OPENAI_API_KEY,
+  output: 'export',
+  basePath: '/rd',
+  trailingSlash: true,
+  images: {
+    unoptimized: true
   },
   webpack: (config, { isServer }) => {
     if (!isServer) {
@@ -14,10 +15,6 @@ const nextConfig = {
       };
     }
     return config;
-  },
-  // Remove deprecated experimental.appDir warning
-  experimental: {
-    // appDir: true, // This is now default in Next.js 13+
   },
 };
 
